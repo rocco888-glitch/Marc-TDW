@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TDW Legal Services — Paralegal Practice | Windsor, ON</title>
+<meta name="description" content="TDW Legal Services — experienced paralegal representation in Windsor, Ontario. Trusted results from a seasoned legal professional.">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0c1220;
+    --navy2: #111a2e;
+    --navy3: #162038;
+    --navy4: #1c2844;
+    --gold: #b8973a;
+    --gold2: #d4b060;
+    --gold-dim: rgba(184,151,58,0.12);
+    --gold-border: rgba(184,151,58,0.22);
+    --white: #ffffff;
+    --cream: #f5f0e8;
+    --mid: #7a8499;
+    --light: #a8b2c4;
+    --border: rgba(255,255,255,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* GRAIN */
+  body::after {
+    content: '';
+    position: fixed; inset: 0; z-index: 999;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 0 64px; height: 76px;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: all 0.4s;
+    border-bottom: 1px solid transparent;
+  }
+  nav.scrolled {
+    background: rgba(12,18,32,0.97);
+    backdrop-filter: blur(20px);
+    border-color: var(--border);
+  }
+
+  .nav-logo {
+    display: flex; flex-direction: column; gap: 2px;
+    text-decoration: none;
+  }
+  .nav-logo-main {
+    font-family: 'EB Garamond', serif;
+    font-size: 20px; font-weight: 600;
+    color: var(--white); letter-spacing: 0.04em;
+    line-height: 1;
+  }
+  .nav-logo-sub {
+    font-size: 9px; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--gold);
+    font-weight: 400;
+  }
+
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+  .nav-links a {
+    font-size: 12px; color: var(--mid);
+    text-decoration: none; transition: color 0.2s;
+    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    border: 1px solid var(--gold-border) !important;
+    color: var(--gold) !important;
+    padding: 10px 22px;
+    transition: all 0.25s !important;
+  }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 64px 80px;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 55% 70% at 75% 50%, rgba(184,151,58,0.07) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 50% at 10% 80%, rgba(184,151,58,0.04) 0%, transparent 60%),
+      linear-gradient(160deg, var(--navy) 0%, var(--navy2) 100%);
+  }
+
+  /* Vertical rule lines */
+  .hero-rules {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  }
+  .hero-rules::before {
+    content: '';
+    position: absolute; top: 0; bottom: 0;
+    left: 58%; width: 1px;
+    background: linear-gradient(180deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 700px; }
+
+  .hero-pretitle {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 36px;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-pretitle-rule { width: 48px; height: 1px; background: var(--gold); }
+  .hero-pretitle span {
+    font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold); font-weight: 400;
+  }
+
+  .hero h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(48px, 6.5vw, 86px);
+    font-weight: 500; line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold2); }
+
+  .hero-sub {
+    font-size: 17px; color: var(--mid); line-height: 1.85;
+    max-width: 500px; margin-bottom: 52px;
+    font-weight: 300;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.3s ease both;
+    margin-bottom: 64px;
+  }
+
+  .btn-gold {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 15px 34px;
+    font-size: 12px; font-weight: 500;
+    text-decoration: none; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.25s;
+  }
+  .btn-gold:hover { background: var(--gold2); box-shadow: 0 8px 28px rgba(184,151,58,0.3); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent; color: var(--white);
+    padding: 15px 34px;
+    font-size: 12px; font-weight: 400;
+    text-decoration: none; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    transition: all 0.25s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); }
+
+  .hero-credentials {
+    display: flex; gap: 40px; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .credential {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .credential-icon { color: var(--gold); font-size: 14px; }
+  .credential-text { font-size: 12px; color: var(--mid); letter-spacing: 0.04em; }
+
+  /* TRUST BAR */
+  .trust {
+    background: var(--navy2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 0 64px;
+    display: flex; align-items: stretch;
+  }
+  .trust-item {
+    flex: 1; padding: 28px 0;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 6px; border-right: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .trust-item:last-child { border: none; }
+  .trust-item:hover { background: rgba(184,151,58,0.04); }
+  .trust-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 36px; font-weight: 600;
+    color: var(--white); line-height: 1;
+  }
+  .trust-num em { font-style: normal; color: var(--gold); }
+  .trust-label { font-size: 10px; color: var(--mid); letter-spacing: 0.12em; text-transform: uppercase; }
+
+  /* SECTIONS */
+  section { padding: 110px 64px; }
+
+  .eyebrow {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 18px;
+  }
+  .eyebrow-rule { width: 32px; height: 1px; background: var(--gold); }
+  .eyebrow span {
+    font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); font-weight: 400;
+  }
+
+  .heading {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: 500; line-height: 1.12;
+    letter-spacing: -0.01em; margin-bottom: 18px;
+  }
+  .heading em { font-style: italic; color: var(--gold2); }
+
+  .subtext {
+    font-size: 16px; color: var(--mid);
+    line-height: 1.8; max-width: 480px; font-weight: 300;
+  }
+
+  /* PRACTICE AREAS */
+  .practice { background: var(--navy); }
+  .practice-header { margin-bottom: 72px; }
+  .practice-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .practice-card {
+    background: var(--navy2);
+    padding: 44px 40px;
+    position: relative; overflow: hidden;
+    transition: background 0.3s;
+  }
+  .practice-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+  .practice-card:hover { background: var(--navy3); }
+  .practice-card:hover::after { transform: scaleX(1); }
+
+  .practice-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 11px; color: var(--gold);
+    letter-spacing: 0.16em; margin-bottom: 36px; font-weight: 400;
+  }
+  .practice-card h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 24px; font-weight: 600;
+    margin-bottom: 12px; line-height: 1.2;
+  }
+  .practice-card p { font-size: 14px; color: var(--mid); line-height: 1.75; font-weight: 300; }
+
+  /* ABOUT */
+  .about { background: var(--navy2); border-top: 1px solid var(--border); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 100px; align-items: center;
+  }
+
+  .about-card {
+    background: var(--navy3);
+    border: 1px solid var(--border);
+    padding: 52px;
+    position: relative;
+  }
+  .about-card::before {
+    content: '';
+    position: absolute; top: -1px; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .about-initial {
+    font-family: 'EB Garamond', serif;
+    font-size: 80px; font-weight: 600;
+    color: var(--gold); opacity: 0.15;
+    line-height: 1; margin-bottom: 8px;
+    font-style: italic;
+  }
+  .about-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 32px; font-weight: 600;
+    margin-bottom: 4px; line-height: 1;
+  }
+  .about-title {
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 28px; font-weight: 400;
+  }
+  .about-bio {
+    font-size: 14px; color: var(--mid);
+    line-height: 1.85; font-weight: 300;
+    margin-bottom: 32px;
+  }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    border: 1px solid var(--gold-border);
+    padding: 5px 14px;
+    font-size: 11px; color: var(--light);
+    letter-spacing: 0.06em; font-weight: 400;
+  }
+
+  .about-points { }
+  .about-point {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 18px;
+  }
+  .about-point:first-child { border-top: 1px solid var(--border); }
+  .about-point-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 13px; color: var(--gold);
+    font-weight: 400; flex-shrink: 0; margin-top: 2px; width: 28px;
+  }
+  .about-point h4 { font-size: 15px; font-weight: 500; margin-bottom: 5px; }
+  .about-point p { font-size: 13px; color: var(--mid); line-height: 1.7; font-weight: 300; }
+
+  /* PROCESS */
+  .process { background: var(--navy); }
+  .process-header { text-align: center; max-width: 540px; margin: 0 auto 80px; }
+
+  .process-row {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; position: relative; max-width: 1000px; margin: 0 auto;
+  }
+  .process-row::before {
+    content: '';
+    position: absolute; top: 27px; left: 12%; right: 12%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-border), var(--gold-border), transparent);
+  }
+
+  .process-step { padding: 0 20px; text-align: center; position: relative; z-index: 1; }
+  .step-circle {
+    width: 54px; height: 54px;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 28px;
+    font-family: 'EB Garamond', serif;
+    font-size: 22px; font-weight: 600; color: var(--mid);
+    background: var(--navy);
+    transition: all 0.3s;
+  }
+  .process-step:hover .step-circle {
+    border-color: var(--gold);
+    color: var(--gold);
+    box-shadow: 0 0 24px rgba(184,151,58,0.2);
+  }
+  .process-step h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 20px; font-weight: 600; margin-bottom: 10px;
+  }
+  .process-step p { font-size: 13px; color: var(--mid); line-height: 1.7; font-weight: 300; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--navy2); border-top: 1px solid var(--border); }
+  .testimonials-header { text-align: center; max-width: 500px; margin: 0 auto 72px; }
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .testimonial {
+    background: var(--navy3);
+    padding: 44px 40px;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .testimonial:hover { background: var(--navy4); }
+
+  .testimonial-stars { color: var(--gold); font-size: 13px; letter-spacing: 3px; margin-bottom: 24px; }
+  .testimonial blockquote {
+    font-family: 'EB Garamond', serif;
+    font-size: 19px; font-style: italic;
+    line-height: 1.65; color: var(--light);
+    margin-bottom: 32px; font-weight: 400;
+  }
+  .testimonial-author strong {
+    display: block; font-size: 14px; font-weight: 500;
+    margin-bottom: 3px; font-family: 'Jost', sans-serif;
+  }
+  .testimonial-author span { font-size: 11px; color: var(--mid); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* CTA BAND */
+  .cta-band {
+    background: var(--gold);
+    padding: 72px 64px;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+  }
+  .cta-band h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(28px, 3.5vw, 46px);
+    font-weight: 500; color: var(--navy);
+    line-height: 1.15; letter-spacing: -0.01em;
+  }
+  .cta-band h2 em { font-style: italic; }
+  .cta-band p { font-size: 15px; color: rgba(12,18,32,0.6); margin-top: 6px; font-weight: 300; }
+  .btn-navy {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--navy); color: var(--white);
+    padding: 16px 36px;
+    font-size: 12px; font-weight: 500;
+    text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
+    transition: all 0.25s; white-space: nowrap; flex-shrink: 0;
+  }
+  .btn-navy:hover { background: var(--navy2); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+
+  /* CONTACT */
+  .contact { background: var(--navy); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; margin-top: 64px; }
+
+  .contact-detail {
+    display: flex; gap: 16px; align-items: flex-start; margin-bottom: 28px;
+  }
+  .contact-detail-icon {
+    width: 42px; height: 42px; flex-shrink: 0;
+    border: 1px solid var(--gold-border);
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .contact-detail-label { font-size: 10px; color: var(--gold); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 4px; }
+  .contact-detail a, .contact-detail p { font-size: 15px; color: var(--light); text-decoration: none; font-weight: 300; }
+  .contact-detail a:hover { color: var(--white); }
+
+  .contact-form {
+    background: var(--navy2);
+    border: 1px solid var(--border);
+    padding: 48px;
+    position: relative;
+  }
+  .contact-form::before {
+    content: '';
+    position: absolute; top: -1px; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block; font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--mid); margin-bottom: 8px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--navy3);
+    border: 1px solid var(--border);
+    padding: 13px 16px;
+    font-size: 14px; color: var(--white);
+    font-family: 'Jost', sans-serif; font-weight: 300;
+    outline: none; transition: border-color 0.2s;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold-border); }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: #3a4560; }
+  .form-group textarea { resize: none; height: 100px; }
+  .form-group select { color: var(--mid); }
+  .form-group select option { background: var(--navy3); color: var(--white); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-submit {
+    width: 100%; background: var(--gold); color: var(--navy);
+    border: none; padding: 15px;
+    font-size: 12px; font-weight: 500;
+    font-family: 'Jost', sans-serif;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; margin-top: 6px; transition: all 0.25s;
+  }
+  .form-submit:hover { background: var(--gold2); box-shadow: 0 6px 20px rgba(184,151,58,0.25); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy2);
+    border-top: 1px solid var(--border);
+  }
+  .footer-top {
+    padding: 64px;
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px;
+  }
+  .footer-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 24px; font-weight: 600; margin-bottom: 4px;
+  }
+  .footer-tagline-sub { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-desc { font-size: 13px; color: var(--mid); line-height: 1.75; font-weight: 300; max-width: 280px; }
+  .footer-col h4 { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul a { font-size: 13px; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--white); }
+  .footer-bottom {
+    padding: 24px 64px;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-copy { font-size: 11px; color: var(--mid); }
+  .footer-bottom-tag {
+    font-family: 'EB Garamond', serif;
+    font-size: 13px; color: var(--gold); font-style: italic;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .fade.in { opacity: 1; transform: translateY(0); }
+
+  /* MOBILE */
+  @media (max-width: 960px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    section { padding: 64px 24px; }
+    .practice-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .process-row { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .process-row::before { display: none; }
+    .trust { padding: 0 24px; flex-wrap: wrap; }
+    .trust-item { flex: 1 1 45%; border-right: none; border-bottom: 1px solid var(--border); }
+    .footer-top { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px; }
+    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; padding: 20px 24px; }
+    .cta-band { padding: 60px 24px; flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-main"><strong style="font-size:24px;letter-spacing:0.08em;color:var(--gold);">TDW</strong> Legal Services</span>
+    <span class="nav-logo-sub">Paralegal Practice · Windsor, ON</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#practice">Practice Areas</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact" class="nav-cta">Free Consultation</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-rules"></div>
+  <div class="hero-content">
+    <div class="hero-pretitle">
+      <div class="hero-pretitle-rule"></div>
+      <span>Windsor & Essex County, Ontario</span>
+    </div>
+    <div style="font-family:'EB Garamond',serif;font-size:clamp(18px,2vw,26px);font-weight:600;letter-spacing:0.28em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;animation:fadeUp 0.8s 0.05s ease both;">TDW Legal Services</div>
+    <h1>
+      Trusted legal guidance<br>
+      backed by decades of <em>experience.</em>
+    </h1>
+    <p class="hero-sub">TDW Legal Services brings decades of legal experience to every case. Marc Hooper has been navigating Ontario's courts and tribunals for years — when you hire TDW, you're hiring someone who has seen it all and knows how to win.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-gold">Free Consultation →</a>
+      <a href="#practice" class="btn-ghost">Practice Areas</a>
+    </div>
+    <div class="hero-credentials">
+      <div class="credential">
+        <span class="credential-icon">✦</span>
+        <span class="credential-text">Licensed by the Law Society of Ontario</span>
+      </div>
+      <div class="credential">
+        <span class="credential-icon">✦</span>
+        <span class="credential-text">Windsor, ON · 360 Eugenie St E</span>
+      </div>
+      <div class="credential">
+        <span class="credential-icon">✦</span>
+        <span class="credential-text">Years of Experience</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-item">
+    <div class="trust-num">LSO<em>.</em></div>
+    <div class="trust-label">Licensed & Regulated</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-num">4.<em>0</em></div>
+    <div class="trust-label">Google Rating</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-num">Free<em>.</em></div>
+    <div class="trust-label">Initial Consultation</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-num">$<em>0</em></div>
+    <div class="trust-label">Hidden Fees</div>
+  </div>
+</div>
+
+<!-- PRACTICE AREAS -->
+<section class="practice" id="practice">
+  <div class="practice-header fade">
+    <div class="eyebrow"><div class="eyebrow-rule"></div><span>Practice Areas</span></div>
+    <h2 class="heading">How we can <em>help you.</em></h2>
+    <p class="subtext">From traffic matters to landlord-tenant disputes, Marc brings deep experience and a proven track record to every file he handles.</p>
+  </div>
+  <div class="practice-grid">
+    <div class="practice-card fade">
+      <div class="practice-num">01</div>
+      <h3>Traffic & Highway Offences</h3>
+      <p>Speeding tickets, careless driving, licence suspensions, and HTA violations. We fight to protect your driving record and keep your insurance rates down.</p>
+    </div>
+    <div class="practice-card fade">
+      <div class="practice-num">02</div>
+      <h3>Landlord & Tenant</h3>
+      <p>Representation at the Landlord and Tenant Board for both landlords and tenants. Evictions, rent disputes, maintenance issues, and lease terminations.</p>
+    </div>
+    <div class="practice-card fade">
+      <div class="practice-num">03</div>
+      <h3>Small Claims Court</h3>
+      <p>Experienced advocacy for claims up to $35,000. We prepare your case, handle filings, and represent you in court so you don't face it alone.</p>
+    </div>
+    <div class="practice-card fade">
+      <div class="practice-num">04</div>
+      <h3>Employment Matters</h3>
+      <p>Wrongful dismissal, unpaid wages, and workplace disputes before the Ministry of Labour. We help employees understand and enforce their rights.</p>
+    </div>
+    <div class="practice-card fade">
+      <div class="practice-num">05</div>
+      <h3>Regulatory Offences</h3>
+      <p>Provincial offences, licensing matters, and regulatory compliance. We navigate the system so you can focus on running your life and business.</p>
+    </div>
+    <div class="practice-card fade">
+      <div class="practice-num">06</div>
+      <h3>General Legal Advice</h3>
+      <p>Not sure where to start? Book a free consultation and we'll help you understand your options, your rights, and the best path forward.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="fade">
+      <div class="about-card">
+        <div class="about-initial">M</div>
+        <div style="font-family:'EB Garamond',serif;font-size:13px;font-weight:500;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;margin-bottom:6px;">TDW Legal Services</div>
+        <div class="about-name">Marc Hooper</div>
+        <div class="about-title">Licensed Paralegal · Windsor, ON</div>
+        <p class="about-bio">Marc has spent decades in Ontario's legal system — in courtrooms, at tribunals, and across every stage of the legal process. He founded TDW Legal Services to bring that experience directly to the people of Windsor and Essex County.<br><br>Clients come to Marc because of his reputation for being prepared, persuasive, and relentlessly focused on results. When you work with TDW, you get the benefit of a seasoned legal professional who knows the system inside and out.</p>
+        <div class="about-tags">
+          <span class="tag">Windsor, ON</span>
+          <span class="tag">LSO Licensed</span>
+          <span class="tag">Traffic Offences</span>
+          <span class="tag">LTB Hearings</span>
+          <span class="tag">Small Claims</span>
+        </div>
+      </div>
+    </div>
+    <div class="fade">
+      <div class="eyebrow"><div class="eyebrow-rule"></div><span>Why Choose TDW</span></div>
+      <h2 class="heading">Decades of experience.<br><em>Real results.</em></h2>
+      <p class="subtext">Marc has spent years inside Ontario's courts and tribunals. That experience translates directly into better outcomes for every client he represents.</p>
+      <div class="about-points">
+        <div class="about-point">
+          <div class="about-point-num">01</div>
+          <div>
+            <h4>Experienced & Knowledgeable</h4>
+            <p>Marc brings deep knowledge of Ontario's legal processes, tribunals, and courts to every case he takes on.</p>
+          </div>
+        </div>
+        <div class="about-point">
+          <div class="about-point-num">02</div>
+          <div>
+            <h4>A Proven Track Record</h4>
+            <p>Years of courtroom and tribunal experience means Marc knows what works — and how to build a case that gets results.</p>
+          </div>
+        </div>
+        <div class="about-point">
+          <div class="about-point-num">03</div>
+          <div>
+            <h4>Personal Attention</h4>
+            <p>You work directly with Marc. No junior associates, no getting passed around — just consistent, focused representation.</p>
+          </div>
+        </div>
+        <div class="about-point">
+          <div class="about-point-num">04</div>
+          <div>
+            <h4>Free Initial Consultation</h4>
+            <p>Before you commit to anything, sit down with Marc and understand exactly what your options are. No cost, no obligation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="process-header fade">
+    <div class="eyebrow" style="justify-content:center;"><div class="eyebrow-rule"></div><span>The Process</span></div>
+    <h2 class="heading">Simple from start <em>to finish.</em></h2>
+    <p class="subtext" style="margin:0 auto;">We make the legal process straightforward. Here's what to expect when you work with TDW.</p>
+  </div>
+  <div class="process-row">
+    <div class="process-step fade">
+      <div class="step-circle">1</div>
+      <h3>Free Consultation</h3>
+      <p>Tell us about your situation. We listen, assess, and give you an honest picture of your options.</p>
+    </div>
+    <div class="process-step fade">
+      <div class="step-circle">2</div>
+      <h3>Case Review</h3>
+      <p>We review your documents, gather the facts, and build a clear strategy tailored to your matter.</p>
+    </div>
+    <div class="process-step fade">
+      <div class="step-circle">3</div>
+      <h3>Representation</h3>
+      <p>Marc handles your hearings, filings, and communications on your behalf — start to finish.</p>
+    </div>
+    <div class="process-step fade">
+      <div class="step-circle">4</div>
+      <h3>Resolution</h3>
+      <p>We work toward the best possible outcome and keep you informed every step of the way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-header fade">
+    <div class="eyebrow" style="justify-content:center;"><div class="eyebrow-rule"></div><span>Client Reviews</span></div>
+    <h2 class="heading">What clients <em>say.</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial fade">
+      <div class="testimonial-stars">★★★★★</div>
+      <blockquote>"Marc is extremely knowledgeable in his field. He laid everything out clearly, knew exactly what to do, and the result was better than I expected."</blockquote>
+      <div class="testimonial-author">
+        <strong>Don T.</strong>
+        <span>Windsor, ON</span>
+      </div>
+    </div>
+    <div class="testimonial fade">
+      <div class="testimonial-stars">★★★★★</div>
+      <blockquote>"Very personable and meets timelines. Presents arguments well and clearly knows what he's doing. Marc is a true professional."</blockquote>
+      <div class="testimonial-author">
+        <strong>Laurie M.</strong>
+        <span>Windsor, ON</span>
+      </div>
+    </div>
+    <div class="testimonial fade">
+      <div class="testimonial-stars">★★★★☆</div>
+      <blockquote>"Marc helped me understand my rights in a way no one else had bothered to explain. Thorough, experienced, and genuinely invested in the outcome."</blockquote>
+      <div class="testimonial-author">
+        <strong>Local Client</strong>
+        <span>Essex County, ON</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div>
+    <div style="font-family:'EB Garamond',serif;font-size:13px;letter-spacing:0.22em;color:var(--navy);text-transform:uppercase;opacity:0.5;margin-bottom:8px;">TDW Legal Services</div>
+    <h2>Ready to discuss your <em>case?</em></h2>
+    <p>The consultation is free. The advice is real. No obligation.</p>
+  </div>
+  <a href="#contact" class="btn-navy">Book a Free Consultation →</a>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="fade">
+    <div class="eyebrow"><div class="eyebrow-rule"></div><span>Get In Touch</span></div>
+    <h2 class="heading">Let's talk about<br>your <em>situation.</em></h2>
+  <p style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-top:10px;font-weight:400;">TDW Legal Services · Windsor, ON</p>
+  </div>
+  <div class="contact-grid">
+    <div class="fade">
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div>
+          <div class="contact-detail-label">Office</div>
+          <p>360 Eugenie St E #211, Windsor, ON N8X 2Y1</p>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📞</div>
+        <div>
+          <div class="contact-detail-label">Phone</div>
+          <a href="tel:2263468892">(226) 346-8892</a>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">✉</div>
+        <div>
+          <div class="contact-detail-label">Email</div>
+          <a href="mailto:marchooper@tdwlegalservices.ca">marchooper@tdwlegalservices.ca</a>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🕐</div>
+        <div>
+          <div class="contact-detail-label">Hours</div>
+          <p>Monday – Friday · 9:00 AM – 5:00 PM</p>
+        </div>
+      </div>
+    </div>
+    <div class="fade">
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="John">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(226) 000-0000">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="john@email.com">
+        </div>
+        <div class="form-group">
+          <label>Legal Matter</label>
+          <select>
+            <option value="" disabled selected>Select a practice area</option>
+            <option>Traffic & Highway Offences</option>
+            <option>Landlord & Tenant</option>
+            <option>Small Claims Court</option>
+            <option>Employment Matters</option>
+            <option>Regulatory Offences</option>
+            <option>General Legal Advice</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tell Us About Your Situation</label>
+          <textarea placeholder="Brief description of your legal matter..."></textarea>
+        </div>
+        <button class="form-submit" onclick="handleSubmit(this)">Request Free Consultation →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-name" style="font-size:32px;"><span style="color:var(--gold);letter-spacing:0.06em;">TDW</span> Legal Services</div>
+      <div class="footer-tagline-sub">Licensed Paralegal · Windsor, Ontario</div>
+      <p class="footer-desc">Providing accessible, professional paralegal services to individuals and businesses across Windsor and Essex County since day one.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Practice Areas</h4>
+      <ul>
+        <li><a href="#practice">Traffic Offences</a></li>
+        <li><a href="#practice">Landlord & Tenant</a></li>
+        <li><a href="#practice">Small Claims</a></li>
+        <li><a href="#practice">Employment</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:2263468892">(226) 346-8892</a></li>
+        <li><a href="mailto:marchooper@tdwlegalservices.ca">marchooper@tdwlegalservices.ca</a></li>
+        <li><a href="#contact">Free Consultation</a></li>
+        <li><a href="#about">About Marc</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 <strong>TDW Legal Services</strong> · Marc Hooper · Licensed by the Law Society of Ontario</div>
+    <div class="footer-bottom-tag">Experienced. Prepared. Results-Driven.</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) setTimeout(() => e.target.classList.add('in'), i * 100);
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+  function handleSubmit(btn) {
+    btn.textContent = '✓ Request Sent — Marc Will Be In Touch';
+    btn.style.background = '#2d6a4f';
+    btn.disabled = true;
+  }
+</script>
+</body>
+</html>
